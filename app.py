@@ -30,11 +30,8 @@ def post_albums():
 def get_albums():
     connection = get_flask_database_connection(app)
     repository = AlbumRepository(connection)
-    albums = repository.all()
-    return "\n".join(
-        f"{album}" for album in albums
-    )
-
+    albums = repository.title_and_release()
+    return render_template('albums.html', albums=albums)
 
 @app.route('/artists', methods=["GET"])
 def get_artists():

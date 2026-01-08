@@ -1,0 +1,16 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Albums</h1>
+
+    <div>
+        {% for album in albums %}
+        <p>
+          Title: {{album[0]}}<br>
+          Released: {{album[1]}}
+        </p>
+        <p></p>
+        {% endfor %}
+    </div>
+  </body>
+</html>

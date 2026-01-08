@@ -16,7 +16,14 @@ class AlbumRepository:
             item = Album(row["id"], row["title"], row["release_year"], row["artist_id"])
             albums.append(item)
         return albums
-
+    
+    def title_and_release(self):
+        rows = self._connection.execute('SELECT title, release_year from albums')
+        albums = []
+        for row in rows:
+            item = [row["title"], row["release_year"]]
+            albums.append(item)
+        return albums
 #   Find method
 
     def find(self, id):
