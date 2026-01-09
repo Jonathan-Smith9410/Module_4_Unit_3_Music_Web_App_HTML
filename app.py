@@ -33,6 +33,15 @@ def get_albums():
     albums = repository.title_and_release()
     return render_template('albums.html', albums=albums)
 
+
+@app.route('/albums/<int:id>', methods=["GET"])
+def get_single_album(id):
+    connection = get_flask_database_connection(app)
+    repository = AlbumRepository(connection)
+    album = repository.find_single_album(id)
+    return render_template('album.html', album=album)
+
+
 @app.route('/artists', methods=["GET"])
 def get_artists():
     connection = get_flask_database_connection(app)
