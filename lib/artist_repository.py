@@ -12,6 +12,11 @@ class ArtistRepository:
             artists.append(item)
         return artists
     
+    def get_single_artist(self, id):
+        rows = self._connection.execute('SELECT * from artists WHERE id = %s', [id])
+        artist = rows[0]
+        return artist
+    
     def get_artists_as_string(self):
         rows = self._connection.execute('SELECT name from artists')
         artist_names = []

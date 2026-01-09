@@ -1,0 +1,16 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Artists</h1>
+
+    <div>
+        {% for artist in artists %}
+        <p>
+          Name: {{artist.name}}<br>
+        </p>
+        <p><a href="/artists/{{artist.id}}"> Go to the {{artist.name}} page</a></p>
+        {% endfor %}
+    </div>
+    
+  </body>
+</html>

@@ -18,10 +18,10 @@ class AlbumRepository:
         return albums
     
     def title_and_release(self):
-        rows = self._connection.execute('SELECT title, release_year from albums')
+        rows = self._connection.execute('SELECT id, title, release_year from albums')
         albums = []
         for row in rows:
-            item = [row["title"], row["release_year"]]
+            item = [row["title"], row["release_year"], row["id"]]
             albums.append(item)
         return albums
 #   Find method
