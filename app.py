@@ -69,7 +69,9 @@ def post_artist():
     repository.create(artist)
     return "", 200
 
-
+@app.route("/albums/new", methods=["GET"])
+def get_album_new():
+    return render_template("new.html")
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database
